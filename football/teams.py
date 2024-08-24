@@ -20,7 +20,7 @@ def getTeamInformation(idTeam):
 
     response = requests.get(url, headers=headers, params=params)
 
-    if response.status_code == 200:
+    if (response.status_code == 200):
         data = response.json()
         print("Dados recebidos:", data)
         

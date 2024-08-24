@@ -15,7 +15,7 @@ def getTimezones():
 
     response = requests.get(url, headers=headers)
 
-    if response.status_code == 200:
+    if (response.status_code == 200):
         data = response.json()
         
         return data

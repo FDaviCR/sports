@@ -5,4 +5,5 @@ from general.countries import getCountries
 #getTeamInformation(17)
 
 #getTimezones()
-getCountries()
+t = getCountries()
+print(t)
