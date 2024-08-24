@@ -21,3 +21,20 @@ def getLeagues():
         return data
     else:
         return response.status_code
+    
+def getSeasons():
+    url = "https://v3.football.api-sports.io/leagues/seasons"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if (response.status_code == 200):
+        data = response.json()
+        
+        return data
+    else:
+        return response.status_code
