@@ -1,4 +1,4 @@
-from football.teams import getTeams
+from football.teams import getTeamInformation
 
-getTeams(17)
+getTeamInformation(17)
 

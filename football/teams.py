@@ -6,7 +6,7 @@ load_dotenv()
 secret_key = os.getenv('SECRET_KEY')
 
 
-def getTeams(idTeam):
+def getTeamInformation(idTeam):
     url = "https://v3.football.api-sports.io/teams"
 
     headers = {
@@ -27,3 +27,4 @@ def getTeams(idTeam):
         return data
     else:
         print("Erro na requisição:", response.status_code)
+        
