@@ -8,5 +8,8 @@ from football.teams import getTeamInformation
 
 #getTimezones()
 #getCountries()
-t = getSeasons()
+
+
+# idTeam, nameTeam, idLeague, season, nameCountry, code, idVenue, search
+t = getTeamInformation(33, 'null', 'null', 'null', 'null', 'null', 'null', 'null')
 print(t)
