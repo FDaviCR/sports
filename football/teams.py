@@ -60,4 +60,25 @@ def getTeamStatistics(idLeague, season, idTeam, date):
     else:
         print("Erro na requisição:", response.status_code)
         
+def getTeamSeason(idTeam):
+    url = "https://v3.football.api-sports.io/teams/seasons"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+
+    params = {
+        'team': idTeam
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    if (response.status_code == 200):
+        data = response.json()
+        print("Dados recebidos:", data)
+        
+        return data
+    else:
+        print("Erro na requisição:", response.status_code)
     
