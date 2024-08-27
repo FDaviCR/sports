@@ -63,3 +63,56 @@ def getFixtures(id, ids, live, date, league, season, team, last, next, fromDat, 
     else:
         return response.status_code
 
+def getHeadToHead(h2h, date, last, next, fromDat, to, round, status, venue, timezone):
+    url = "https://v3.football.api-sports.io/fixtures/headtohead"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+    
+    params = {
+        'h2h': h2h,
+        'date': date,
+        'last': last, 
+        'next': next, 
+        'from': fromDat, 
+        'to': to, 
+        'round': round, 
+        'status': status, 
+        'venue': venue, 
+        'timezone': timezone
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    if (response.status_code == 200):
+        data = response.json()
+        
+        return data
+    else:
+        return response.status_code
+
+def getRounds(league, season, current):
+    url = "https://v3.football.api-sports.io/fixtures/rounds"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+    
+    params = {
+        league,
+        season,
+        current
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    if (response.status_code == 200):
+        data = response.json()
+        
+        return data
+    else:
+        return response.status_code
+
