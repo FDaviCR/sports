@@ -2,7 +2,7 @@ from general.timezone import getTimezones
 from general.countries import getCountries
 
 from football.leagues import getLeagues, getSeasons
-from football.teams import getTeamInformation, getTeamStatistics
+from football.teams import getTeamInformation, getTeamStatistics, getTeamSeason, getTeamCountries
 
 #getTeamInformation(17)
 
@@ -11,5 +11,5 @@ from football.teams import getTeamInformation, getTeamStatistics
 
 
 # idTeam, nameTeam, idLeague, season, nameCountry, code, idVenue, search
-t = getTeamStatistics('null', 'null', 33, 'null')
+t = getTeamCountries
 print(t)

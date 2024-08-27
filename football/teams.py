@@ -82,3 +82,20 @@ def getTeamSeason(idTeam):
     else:
         print("Erro na requisição:", response.status_code)
     
+def getTeamCountries():
+    url = "https://v3.football.api-sports.io/teams/countries"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if (response.status_code == 200):
+        data = response.json()
+        print("Dados recebidos:", data)
+        
+        return data
+    else:
+        print("Erro na requisição:", response.status_code)
