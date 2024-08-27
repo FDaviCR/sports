@@ -163,3 +163,25 @@ def getLineups(fixture, team, player, type):
         return data
     else:
         return response.status_code
+
+def getPlayers(fixture, team):
+    url = "https://v3.football.api-sports.io/fixtures/players"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+    
+    params = {
+        fixture,
+        team
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    if (response.status_code == 200):
+        data = response.json()
+        
+        return data
+    else:
+        return response.status_code
