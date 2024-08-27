@@ -28,3 +28,38 @@ def getRounds(league, season, current):
     else:
         return response.status_code
         
+def getFixtures(id, ids, live, date, league, season, team, last, next, fromDat, to, round, status, venue, timezone):
+    url = "https://v3.football.api-sports.io/fixtures"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+    
+    params = {
+        'id': id, 
+        'ids': ids, 
+        'live': live, 
+        'date': date, 
+        'league': league, 
+        'season': season, 
+        'team': team, 
+        'last': last, 
+        'next': next, 
+        'from': fromDat, 
+        'to': to, 
+        'round': round, 
+        'status': status, 
+        'venue': venue, 
+        'timezone': timezone
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    if (response.status_code == 200):
+        data = response.json()
+        
+        return data
+    else:
+        return response.status_code
+
