@@ -116,3 +116,27 @@ def getStatistics(fixture, team, type):
     else:
         return response.status_code
 
+def getEvents(fixture, team, player, type):
+    url = "https://v3.football.api-sports.io/fixtures/events"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+    
+    params = {
+        fixture,
+        team,
+        player,
+        type
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    if (response.status_code == 200):
+        data = response.json()
+        
+        return data
+    else:
+        return response.status_code
+
