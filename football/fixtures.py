@@ -93,8 +93,8 @@ def getHeadToHead(h2h, date, last, next, fromDat, to, round, status, venue, time
     else:
         return response.status_code
 
-def getRounds(league, season, current):
-    url = "https://v3.football.api-sports.io/fixtures/rounds"
+def getStatistics(fixture, team, type):
+    url = "https://v3.football.api-sports.io/fixtures/statistics"
 
     headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
@@ -102,9 +102,9 @@ def getRounds(league, season, current):
     }
     
     params = {
-        league,
-        season,
-        current
+        fixture,
+        team,
+        type
     }
 
     response = requests.get(url, headers=headers, params=params)
