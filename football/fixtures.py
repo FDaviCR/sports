@@ -5,8 +5,8 @@ import os
 load_dotenv()
 secret_key = os.getenv('SECRET_KEY')
 
-def getStandings(league, season, team):
-    url = "https://v3.football.api-sports.io/standings"
+def getRounds(league, season, current):
+    url = "https://v3.football.api-sports.io/fixtures/rounds"
 
     headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
@@ -16,7 +16,7 @@ def getStandings(league, season, team):
     params = {
         league,
         season,
-        team
+        current
     }
 
     response = requests.get(url, headers=headers, params=params)

@@ -4,6 +4,7 @@ from general.countries import getCountries
 from football.leagues import getLeagues, getSeasons
 from football.teams import getTeamInformation, getTeamStatistics, getTeamSeason, getTeamCountries
 from football.standings import getStandings
+from football.fixtures import getRounds
 
 #getTeamInformation(17)
 
