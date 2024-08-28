@@ -97,8 +97,8 @@ def getTopScorers(league, season):
     else:
         return response.status_code
 
-def get(fixture):
-    url = "https://v3.football.api-sports.io/"
+def getTopAssists(league, season):
+    url = "https://v3.football.api-sports.io/players/topassists"
 
     headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
@@ -106,7 +106,8 @@ def get(fixture):
     }
     
     params = {
-        fixture
+        league,
+        season
     }
 
     response = requests.get(url, headers=headers, params=params)
