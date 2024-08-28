@@ -75,6 +75,28 @@ def getSquads(team, player):
     else:
         return response.status_code
 
+def getTopScorers(league, season):
+    url = "https://v3.football.api-sports.io/players/scorers"
+
+    headers = {
+        'x-rapidapi-host': "v3.football.api-sports.io",
+        'x-rapidapi-key': secret_key
+    }
+    
+    params = {
+        league,
+        season
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    if (response.status_code == 200):
+        data = response.json()
+        
+        return data
+    else:
+        return response.status_code
+
 def get(fixture):
     url = "https://v3.football.api-sports.io/"
 
