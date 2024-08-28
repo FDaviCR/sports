@@ -27,8 +27,8 @@ def getSeasons(idPlayer):
     else:
         return response.status_code
 
-def get(fixture):
-    url = "https://v3.football.api-sports.io/"
+def getPlayers(id, team, league, season, search, page):
+    url = "https://v3.football.api-sports.io/players"
 
     headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
@@ -36,7 +36,12 @@ def get(fixture):
     }
     
     params = {
-        fixture
+        id, 
+        team, 
+        league, 
+        season, 
+        search, 
+        page
     }
 
     response = requests.get(url, headers=headers, params=params)
