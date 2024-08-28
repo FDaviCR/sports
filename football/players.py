@@ -119,8 +119,8 @@ def getTopAssists(league, season):
     else:
         return response.status_code
 
-def get(fixture):
-    url = "https://v3.football.api-sports.io/"
+def getTopYellowCards(league, season):
+    url = "https://v3.football.api-sports.io/players/topyellowcards"
 
     headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
@@ -128,7 +128,8 @@ def get(fixture):
     }
     
     params = {
-        fixture
+        league,
+        season
     }
 
     response = requests.get(url, headers=headers, params=params)
@@ -140,8 +141,8 @@ def get(fixture):
     else:
         return response.status_code
 
-def get(fixture):
-    url = "https://v3.football.api-sports.io/"
+def getTopRedCards(league, season):
+    url = "https://v3.football.api-sports.io/players/topredcards"
 
     headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
@@ -149,7 +150,8 @@ def get(fixture):
     }
     
     params = {
-        fixture
+        league,
+        season
     }
 
     response = requests.get(url, headers=headers, params=params)
