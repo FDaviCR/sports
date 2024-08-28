@@ -53,8 +53,8 @@ def getPlayers(id, team, league, season, search, page):
     else:
         return response.status_code
 
-def get(fixture):
-    url = "https://v3.football.api-sports.io/"
+def getSquads(team, player):
+    url = "https://v3.football.api-sports.io/players/squads"
 
     headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
@@ -62,7 +62,8 @@ def get(fixture):
     }
     
     params = {
-        fixture
+        team,
+        player
     }
 
     response = requests.get(url, headers=headers, params=params)
