@@ -11,3 +11,4 @@ from football.players import getPlayers, getSeasons, getSquads, getTopScorers, g
 from football.venues import getVenues
 from football.predictions import getPredictions
 from football.transfers import getTransfers
+from football.trophies import getTrophies
