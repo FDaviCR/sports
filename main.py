@@ -12,3 +12,5 @@ from football.venues import getVenues
 from football.predictions import getPredictions
 from football.transfers import getTransfers
 from football.trophies import getTrophies
+from football.sidelined import getSidelined
+
