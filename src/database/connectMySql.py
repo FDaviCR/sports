@@ -23,3 +23,13 @@ def conectar():
     except Error as e:
         print(f"Erro ao conectar ao MySQL: {e}")
         return None
+
+def urlDatabase():
+    host=os.getenv('MYSQL_HOST')
+    user=os.getenv('MYSQL_USER')
+    password=os.getenv('MYSQL_PASSWORD')
+    database=os.getenv('MYSQL_DATABASE')
+    
+    DATABASE_URL = "mysql+mysqlconnector://"+ user +":" + password + "@"+ host +"/"+ database
+
+    return DATABASE_URL
