@@ -14,30 +14,6 @@ from src.api.football.transfers import getTransfers
 from src.api.football.trophies import getTrophies
 from src.api.football.sidelined import getSidelined
 
-from src.database.connectMySql import conectar
-'''
-conn = conectar()
-
-if conn:
-    cursor = conn.cursor()
-
-    # Exemplo de operação: Criando uma tabela
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS timezones (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            timezone VARCHAR(255) NOT NULL
-        )
-    """)
-    
-    # Confirmar a operação
-    conn.commit()
-    
-    # Fechar a conexão
-    cursor.close()
-    conn.close()
-    print("Operação realizada e conexão fechada.")
-'''
-
 
 from src.models.timezones import Timezone
 
