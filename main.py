@@ -15,6 +15,5 @@ from src.api.football.trophies import getTrophies
 from src.api.football.sidelined import getSidelined
 
 
-from src.models.timezones import Timezone
 
-Timezone()
+

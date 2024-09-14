@@ -8,13 +8,13 @@ import os
 
 load_dotenv()
 
-host=os.getenv('MYSQL_HOST')
-user=os.getenv('MYSQL_USER')
-password=os.getenv('MYSQL_PASSWORD')
-database=os.getenv('MYSQL_DATABASE')
+host = os.getenv('MYSQL_HOST')
+user = os.getenv('MYSQL_USER')
+password = os.getenv('MYSQL_PASSWORD')
+database = os.getenv('MYSQL_DATABASE')
 
 # Configuração do banco de dados MySQL
-DATABASE_URL = "mysql+mysqlconnector://"+ user +":" + password + "@"+ host +"/"+ database
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 # Criando a engine de conexão com o MySQL
 engine = create_engine(DATABASE_URL)
