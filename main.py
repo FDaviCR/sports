@@ -1,19 +1,25 @@
-from src.api.general.timezone import getTimezones
-from src.api.general.countries import getCountries
+from kivy.config import Config
+from kivy.core.window import Window
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.label import Label
 
-from src.api.football.leagues import getLeagues, getSeasons
-from src.api.football.teams import getTeamInformation, getTeamStatistics, getTeamSeason, getTeamCountries
-from src.api.football.standings import getStandings
-from src.api.football.fixtures import getRounds, getFixtures, getHeadToHead, getStatistics, getEvents, getLineups, getPlayers
-from src.api.football.injuries import getInjuries
-from src.api.football.coachs import getCoachs
-from src.api.football.players import getPlayers, getSeasons, getSquads, getTopScorers, getTopAssists, getTopYellowCards, getTopRedCards
-from src.api.football.venues import getVenues
-from src.api.football.predictions import getPredictions
-from src.api.football.transfers import getTransfers
-from src.api.football.trophies import getTrophies
-from src.api.football.sidelined import getSidelined
+Config.set('graphics', 'resizable', True)  
+Config.set('graphics', 'borderless', False)
+Config.set('graphics', 'fullscreen', 'fake')
 
+class MyApp(App):
+    def build(self):
+        Window.maximize()
+        layout = BoxLayout(orientation='vertical')
+        button = Button(text="Test", )
+        layout.add_widget(button)
+        
+        return layout
 
+    def close_app(self, instance):
+        App.get_running_app().stop()
 
-
+if __name__ == "__main__":
+    MyApp().run()
