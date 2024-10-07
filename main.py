@@ -1,38 +1,40 @@
-from kivy.config import Config
-from kivy.core.window import Window
+import tkinter as tk
+from src.screens.home_screen import Home
+from src.screens.football.leagues_screen import Leagues
 
-from kivy.app import App
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.lang import Builder
+class App(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Sports")
 
-Config.set('graphics', 'resizable', True)  # Permitir que a janela seja redimensionável
-Config.set('graphics', 'borderless', False)  # Garantir que tenha borda para maximizar/minimizar
-Config.set('graphics', 'fullscreen', 'fake')  # "fake" mantém a barra de tarefas visível
+        # Definir o tamanho máximo da tela
+        self.state('zoomed')  # Janela maximizada
 
-# Definir as telas no Python
-class MenuScreen(Screen):
-    pass
+        # Container que vai armazenar as telas
+        container = tk.Frame(self)
+        container.pack(side="top", fill="both", expand=True)
 
-class Tela1(Screen):
-    pass
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_columnconfigure(0, weight=1)
+        container.configure(background='black')
 
-class Tela2(Screen):
-    pass
+        # Dicionário que vai armazenar as instâncias das telas
+        self.frames = {}
 
-class Tela3(Screen):
-    pass
+        # Instanciar e adicionar as telas ao container
+        for F in (Home, Leagues):
+            frame = F(container, self)
+            self.frames[F] = frame
+            frame.grid(row=0, column=0, sticky="nsew")
 
-# Gerenciar as telas
-class GerenciadorDeTelas(ScreenManager):
-    pass
+        # Mostrar a primeira tela no início
+        self.mostrar_tela(Home)
 
-# Carregar o arquivo KV
-kv = Builder.load_file("menu.kv")
+    def mostrar_tela(self, cont):
+        # Eleva a tela solicitada (raise) no container
+        frame = self.frames[cont]
+        frame.tkraise()
 
-class MyApp(App):
-    def build(self):
-        Window.maximize()
-        return kv
-
-if __name__ == '__main__':
-    MyApp().run()
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
