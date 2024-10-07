@@ -1,25 +1,38 @@
 from kivy.config import Config
 from kivy.core.window import Window
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.label import Label
 
-Config.set('graphics', 'resizable', True)  
-Config.set('graphics', 'borderless', False)
-Config.set('graphics', 'fullscreen', 'fake')
+from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.lang import Builder
+
+Config.set('graphics', 'resizable', True)  # Permitir que a janela seja redimensionável
+Config.set('graphics', 'borderless', False)  # Garantir que tenha borda para maximizar/minimizar
+Config.set('graphics', 'fullscreen', 'fake')  # "fake" mantém a barra de tarefas visível
+
+# Definir as telas no Python
+class MenuScreen(Screen):
+    pass
+
+class Tela1(Screen):
+    pass
+
+class Tela2(Screen):
+    pass
+
+class Tela3(Screen):
+    pass
+
+# Gerenciar as telas
+class GerenciadorDeTelas(ScreenManager):
+    pass
+
+# Carregar o arquivo KV
+kv = Builder.load_file("menu.kv")
 
 class MyApp(App):
     def build(self):
         Window.maximize()
-        layout = BoxLayout(orientation='vertical')
-        button = Button(text="Test", )
-        layout.add_widget(button)
-        
-        return layout
+        return kv
 
-    def close_app(self, instance):
-        App.get_running_app().stop()
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     MyApp().run()
