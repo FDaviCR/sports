@@ -5,7 +5,7 @@ from src.gui.football.leagues_screen import Leagues
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Aplicação Multi-Telas Estruturada")
+        self.title("Sports")
         self.state('zoomed')  # Janela maximizada
 
         container = tk.Frame(self)
