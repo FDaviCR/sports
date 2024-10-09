@@ -4,11 +4,11 @@ from tkinter import ttk
 
 cor_de_fundo = "gray"
 
-class Home(tk.Frame):
+class HomeFootball(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        self.configure(bg="#2f2f2f")
+        self.configure(bg="#000000")
         
         subcontainer1 = tk.Frame(self, bg=cor_de_fundo)
         subcontainer1.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
@@ -19,7 +19,6 @@ class Home(tk.Frame):
         subcontainer3 = tk.Frame(self, bg=cor_de_fundo)
         subcontainer3.grid(row=0, column=2, padx=5, pady=5, sticky="nsew")
 
-        # Linha 1
         subcontainer4 = tk.Frame(self, bg=cor_de_fundo)
         subcontainer4.grid(row=1, column=0, padx=5, pady=5, sticky="nsew")
 
@@ -29,7 +28,6 @@ class Home(tk.Frame):
         subcontainer6 = tk.Frame(self, bg=cor_de_fundo)
         subcontainer6.grid(row=1, column=2, padx=5, pady=5, sticky="nsew")
 
-        # Linha 2
         subcontainer7 = tk.Frame(self, bg=cor_de_fundo)
         subcontainer7.grid(row=2, column=0, padx=5, pady=5, sticky="nsew")
 
@@ -40,7 +38,10 @@ class Home(tk.Frame):
         subcontainer9.grid(row=2, column=2, padx=5, pady=5, sticky="nsew")
 
         # Adicionando labels para identificação em cada subcontainer
-        tk.Label(subcontainer1, text="Row 0, Col 0").pack(expand=True)
+        tk.Button(subcontainer1, text="Atualizar Ligas", width=50).pack(pady=20)
+        tk.Button(subcontainer1, text="Listar Ligas", width=50).pack(pady=0)
+        tk.Label(subcontainer1, text="Data de Atualização: ").pack(expand=True)
+        
         tk.Label(subcontainer2, text="Row 0, Col 1").pack(expand=True)
         tk.Label(subcontainer3, text="Row 0, Col 2").pack(expand=True)
 
