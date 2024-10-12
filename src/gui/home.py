@@ -1,4 +1,5 @@
 import tkinter as tk
+from src.api.general.timezone import getTimezones
 
 class HomePage(tk.Frame):
     def __init__(self, parent, controller):
@@ -20,14 +21,13 @@ class HomePage(tk.Frame):
         button1.pack(side="top", fill="both", expand=True)
 
         button2 = tk.Button(self, 
-                            text="Ir para Página de Basquete", 
-                            command=lambda: controller.show_frame("Page2"),
+                            text="Test", 
+                            command=lambda: getTimezones(),
                             font=("Helvetica", 14, "bold"),
                             bg="#010101",
                             fg="white",
                             borderwidth=5,
-                            cursor="hand2",
-                            state="disabled"
+                            cursor="hand2"
         )
         button2.pack(side="top", fill="both", expand=True)
 
