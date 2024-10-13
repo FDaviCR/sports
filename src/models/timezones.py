@@ -39,7 +39,7 @@ Base.metadata.create_all(engine)
 # Criando uma sessão para interagir com o banco de dados
 Session = sessionmaker(bind=engine)
 session = Session()
-
+'''
 # Exemplo de como adicionar um novo usuário ao banco de dados
 new_tz = Timezone(timezone="test/TS")
 session.add(new_tz)
@@ -49,3 +49,4 @@ session.commit()
 timezones = session.query(Timezone).all()
 for timezone in timezones:
     print(timezone)
+'''

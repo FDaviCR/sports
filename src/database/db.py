@@ -4,7 +4,7 @@ from mysql.connector import Error
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from config.settings import DATABASE_URL, MYSQL_HOST, MYSQL_DATABASE, MYSQL_PASSWORD, MYSQL_USER
+from src.config.settings import DATABASE_URL, MYSQL_HOST, MYSQL_DATABASE, MYSQL_PASSWORD, MYSQL_USER
 
 engine = create_engine(DATABASE_URL)
 Base = declarative_base()

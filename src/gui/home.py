@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.api.general.timezone import getTimezones
+from src.functions.general.timezone import createTimezones
 
 class HomePage(tk.Frame):
     def __init__(self, parent, controller):
@@ -22,7 +22,7 @@ class HomePage(tk.Frame):
 
         button2 = tk.Button(self, 
                             text="Test", 
-                            command=lambda: getTimezones(),
+                            command=lambda: createTimezones(),
                             font=("Helvetica", 14, "bold"),
                             bg="#010101",
                             fg="white",

@@ -1,5 +1,8 @@
 from sqlalchemy.orm import Session
-from models.timezones import Timezone
+from src.models.timezones import Timezone
+from src.api.general.timezone import getTimezones
+from types import SimpleNamespace
+from src.database.db import SessionLocal
 
 def createTimezone(db: Session, timezone: str):
     new_timezone = Timezone(timezone=timezone)
@@ -29,3 +32,15 @@ def deleteTimezone(db: Session, timezone_id: int):
         db.delete(Timezone)
         db.commit()
     return Timezone
+
+def createTimezones():
+    timezones_return = getTimezones()
+    
+    obj = SimpleNamespace(**timezones_return)
+
+    if(obj.errors == []):
+        timezones = obj.response
+        db = SessionLocal()
+        for tz in timezones:
+            createTimezone(db, tz)      
+    
