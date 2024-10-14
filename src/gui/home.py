@@ -1,5 +1,6 @@
 import tkinter as tk
 from src.functions.general.timezone import createTimezones
+from src.functions.general.countries import createCountries
 
 class HomePage(tk.Frame):
     def __init__(self, parent, controller):
@@ -22,12 +23,13 @@ class HomePage(tk.Frame):
 
         button2 = tk.Button(self, 
                             text="Test", 
-                            command=lambda: createTimezones(),
+                            command=lambda: createCountries(),
                             font=("Helvetica", 14, "bold"),
                             bg="#010101",
                             fg="white",
                             borderwidth=5,
-                            cursor="hand2"
+                            cursor="hand2",
+                            state="disabled"
         )
         button2.pack(side="top", fill="both", expand=True)
 

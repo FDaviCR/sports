@@ -23,8 +23,8 @@ class Country(Base):
     
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(100), nullable=False, unique=True)
-    code = Column(String(10), nullable=False, unique=True)
-    flag = Column(String(500), nullable=False, unique=True)
+    code = Column(String(10), nullable=True, unique=False)
+    flag = Column(String(500), nullable=True, unique=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     def __repr__(self):
