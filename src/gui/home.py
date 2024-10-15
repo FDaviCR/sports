@@ -1,6 +1,4 @@
 import tkinter as tk
-from src.functions.general.timezone import createTimezones
-from src.functions.general.countries import createCountries
 
 class HomePage(tk.Frame):
     def __init__(self, parent, controller):
@@ -11,7 +9,7 @@ class HomePage(tk.Frame):
         # Botões para navegar entre as páginas
         button1 = tk.Button(self, 
                             text="Ir para Página de Futebol",
-                            command=lambda: controller.show_frame("Page1"), 
+                            command=lambda: controller.show_frame("HomeFootball"), 
                             font=("Helvetica", 14, "bold"),
                             bg="#010101",
                             fg="white",
