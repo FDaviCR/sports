@@ -14,7 +14,7 @@ def createCountry(db: Session, name: str, code: str, flag: str):
 def getCoutry(db: Session, Country_id: int):
     return db.query(Country).filter(Country.id == Country_id).first()
 
-def getAllCountries(db: Session, skip: int = 0, limit: int = 10):
+def getInBaseCountries(db: Session, skip: int = 0, limit: int = 10):
     return db.query(Country).offset(skip).limit(limit).all()
 
 def updateCountry(db: Session, country_id: int, country_name: str = None, country_code: str = None, country_flag: str = None):

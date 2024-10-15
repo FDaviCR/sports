@@ -14,7 +14,7 @@ def createTimezone(db: Session, timezone: str):
 def getTimezone(db: Session, Timezone_id: int):
     return db.query(Timezone).filter(Timezone.id == Timezone_id).first()
 
-def getTimezones(db: Session, skip: int = 0, limit: int = 10):
+def getInBaseTimezones(db: Session, skip: int = 0, limit: int = 10):
     return db.query(Timezone).offset(skip).limit(limit).all()
 
 def updateTimezone(db: Session, timezone_id: int, timezone_name: str = None):
@@ -41,6 +41,7 @@ def createTimezones():
     if(obj.errors == []):
         timezones = obj.response
         db = SessionLocal()
+        print(timezones)
         for tz in timezones:
             createTimezone(db, tz)      
     

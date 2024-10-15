@@ -1,12 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
 
-from src.functions.general.timezone import createTimezones
-from src.functions.general.countries import createCountries
+from src.widgets.notification import start_task_with_popup
 
 cor_de_fundo = "#454544"
 
-class HomeFootball(tk.Frame):
+class HomeFootball(tk.Frame):    
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
@@ -42,7 +41,7 @@ class HomeFootball(tk.Frame):
         # Adicionando labels para identificação em cada subcontainer
         tk.Label(subcontainer1, text="Timezones", width=50, bg=cor_de_fundo, font=("Arial", 20), fg="white").pack(pady=0)
         tk.Button(subcontainer1, text="Listar Timezones", width=50, relief="solid", bd=2).pack(pady=5)
-        tk.Button(subcontainer1, text="Atualizar Timezones", width=50, relief="solid", bd=2).pack(pady=5)
+        tk.Button(subcontainer1, text="Atualizar Timezones", width=50, relief="solid", bd=2, command=lambda:start_task_with_popup()).pack(pady=5)
         
         tk.Label(subcontainer2, text="Countries", width=50, bg=cor_de_fundo, font=("Arial", 20), fg="white").pack(pady=0)
         tk.Button(subcontainer2, text="Listar Countries", width=50, relief="solid", bd=2).pack(pady=5)
