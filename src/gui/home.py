@@ -21,7 +21,7 @@ class HomePage(tk.Frame):
 
         button2 = tk.Button(self, 
                             text="Test", 
-                            command=lambda: createCountries(),
+                            command=lambda: controller.show_frame("HomeFootball"),
                             font=("Helvetica", 14, "bold"),
                             bg="#010101",
                             fg="white",
